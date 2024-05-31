@@ -1,0 +1,32 @@
+    syntax = "proto3";
+
+    option go_package = "./";
+
+    package userapp;
+//creating 5 methods to define the user to work
+    service User {
+    rpc GetUsers (Empty) returns (stream UserInfo);
+    rpc GetUser (Id) returns (UserInfo);
+    rpc CreateUser (UserInfo) returns (Id);
+    rpc UpdateUser (UserInfo) returns (Status);
+    rpc DeleteUser (Id) returns (Status);
+    }
+
+    message Empty {}
+//userinfo to specify it
+    message UserInfo {
+    string id = 1;
+    string fname = 2;
+    string city = 3;
+    int64 phone = 4;
+    float height = 5;
+    bool married = 6;
+    }
+
+    message Id {
+    string value = 1;
+    }
+
+    message Status {
+    int32 value = 1;
+    }
