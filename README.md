@@ -18,6 +18,7 @@ protoc --go-grpc_out=. --go_out=. api.proto
 $go mod tidy
 $touch server/main.go
 $touch client/main.go
+
 Update server/main.go
 $gofmt -s -w server/main.go
 $go run server/main.go
